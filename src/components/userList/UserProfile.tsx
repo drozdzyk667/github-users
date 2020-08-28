@@ -35,9 +35,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     minWidth: '300px',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'left',
     flexDirection: 'column',
     padding: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      minWidth: '200px',
+    },
   },
   avatarSmallWidth: {
     width: '200px',
@@ -83,10 +85,12 @@ const UserProfile: React.FC<UserProps> = React.memo(({ user }) => {
                 alt='user-avatar'
               />
             </Box>
-            <UserProfileDetails
-              isScreenMobile={isScreenMobile}
-              response={response}
-            />
+            <Box className={classes.innerContainer}>
+              <UserProfileDetails
+                isScreenMobile={isScreenMobile}
+                response={response}
+              />
+            </Box>
           </Box>
         </LoaderWithError>
       )}

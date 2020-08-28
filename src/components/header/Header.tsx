@@ -24,8 +24,8 @@ const Header = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant={width < MIN_SCREEN_WIDTH ? 'h4' : 'h3'}>
-        {'"Github Users"'}
+      <Typography variant={width < MIN_SCREEN_WIDTH ? 'h5' : 'h4'}>
+        {'Github Users'}
       </Typography>
       <LangSelector />
     </Box>

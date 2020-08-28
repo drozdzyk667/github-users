@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, makeStyles, Theme, Typography, Link } from '@material-ui/core';
+import { makeStyles, Theme, Typography, Link } from '@material-ui/core';
 import {
   ResponseUserItems,
   EMPTY_DATA,
@@ -15,22 +15,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     marginTop: '20px',
   },
-  innerContainer: {
-    flex: 1,
-    display: 'flex',
-    minWidth: '300px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'left',
-    flexDirection: 'column',
-    padding: theme.spacing(2),
-  },
   spacer: {
     marginLeft: 5,
   },
   desc: {
     textAlign: 'center',
     marginTop: 10,
+    display: 'inline-block',
   },
 }));
 
@@ -59,7 +50,7 @@ const UserProfile: React.FC<UserProfileDetailsProps> = React.memo(
       response?.name || response?.location || response?.bio;
 
     return (
-      <Box className={classes.innerContainer}>
+      <>
         {isProfileDataAvailable ? (
           <>
             {response.name && (
@@ -85,7 +76,7 @@ const UserProfile: React.FC<UserProfileDetailsProps> = React.memo(
             {t('visitProfile')}
           </Typography>
         </Link>
-      </Box>
+      </>
     );
   }
 );
