@@ -24,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LangSelector = () => {
+const LangSelector: React.FC = () => {
   const { t } = useTranslation();
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | Element>(null);
 
-  const handleOpenMenu = (event: any) => {
+  const handleOpenMenu = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -47,12 +47,13 @@ const LangSelector = () => {
 
   return (
     <Box className={classes.root}>
-      <Icon
-        className={classes.pointer}
-        onClick={handleOpenMenu}
-        fontSize='large'
-        name={i18n.language}
-      />
+      <Box onClick={handleOpenMenu}>
+        <Icon
+          className={classes.pointer}
+          fontSize='large'
+          name={i18n.language}
+        />
+      </Box>
       <Menu
         keepMounted
         anchorEl={anchorEl}

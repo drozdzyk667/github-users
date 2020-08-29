@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 });
 
 interface RepoListProps {
-  repos: any[];
+  repos: Repo[];
 }
 
 export interface Repo {

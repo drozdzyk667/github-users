@@ -23,7 +23,7 @@ const Loader: React.FC<Props> = ({ isLoading, size, children }) => {
       alignItems='center'
       justify='center'
     >
-      <CircularProgress size={size} />
+      <CircularProgress size={size} data-testid='loader' />
     </Grid>
   ) : (
     children

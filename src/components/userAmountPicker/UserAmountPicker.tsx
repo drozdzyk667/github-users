@@ -48,9 +48,9 @@ const UserAmountPicker: React.FC<UserAmountPickerProps> = ({
 }) => {
   const { t } = useTranslation();
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | Element>(null);
 
-  const handleOpenMenu = (event: any) => {
+  const handleOpenMenu = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
   };
 

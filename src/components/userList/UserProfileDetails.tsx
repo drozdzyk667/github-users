@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, Typography, Link } from '@material-ui/core';
+import { makeStyles, Typography, Link } from '@material-ui/core';
 import {
   ResponseUserItems,
   EMPTY_DATA,
@@ -8,7 +8,7 @@ import Icon from 'Icons';
 import { Icons } from 'Icons/Icon.constants';
 import { useTranslation } from 'react-i18next';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
   urlContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: 10,
     display: 'inline-block',
   },
-}));
+});
 
 const SLICE_STARTING_CHAR = 0;
 const MAX_DESC_LENGTH = 100;

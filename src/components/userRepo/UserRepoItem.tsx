@@ -3,6 +3,7 @@ import { Box, makeStyles } from '@material-ui/core';
 import UserRepoStats from './UserRepoStats';
 import { Repo } from './UserRepoList';
 import UserRepoInfo from './UserRepoInfo';
+import { LangColors } from 'theme/Colors';
 
 const useStyles = makeStyles({
   root: { display: 'flex', flexDirection: 'column' },
@@ -10,7 +11,7 @@ const useStyles = makeStyles({
 
 export interface RepoItemProps {
   repo: Repo;
-  color: any;
+  color: LangColors;
 }
 
 const UserRepoItem: React.FC<RepoItemProps> = ({ color, repo }) => {
