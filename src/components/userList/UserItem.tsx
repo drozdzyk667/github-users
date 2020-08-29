@@ -17,7 +17,7 @@ import {
   Theme,
 } from '@material-ui/core';
 import UserRepoList from 'components/userRepo';
-import UserProfile from './UserProfile';
+import UserProfile from '../userProfile/UserProfile';
 import LoaderWithError from 'components/loader/LoaderWithError';
 
 const useStyles = makeStyles((theme: Theme) => ({

@@ -67,6 +67,7 @@ const UserAmountPicker: React.FC<UserAmountPickerProps> = ({
       <Button
         className={classes.button}
         onClick={handleOpenMenu}
+        data-testid='user-amount-button'
         variant='contained'
         color='primary'
       >

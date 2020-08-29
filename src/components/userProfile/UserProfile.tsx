@@ -1,10 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import { UserProps } from './UserItem';
+import { UserProps } from '../userList/UserItem';
 import useFetch from 'helpers/useFetch';
 import { useWindowProperties } from 'helpers/useWidth';
 import { Box, makeStyles, Theme } from '@material-ui/core';
-import { MID_SCREEN_WIDTH } from 'pages/githubViewer/GithubViewer.constants';
 import {
   GithubUserProfileData,
   SMALL_LOADER_SIZE,
@@ -55,14 +54,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const UserProfile: React.FC<UserProps> = React.memo(({ user }) => {
   const classes = useStyles();
-  const { width } = useWindowProperties();
+  const { isScreenTablet } = useWindowProperties();
 
   const { response, error, isLoading } = useFetch(
     user.isExpanded,
     GithubUserProfileData(user.login)
   );
-
-  const isScreenMobile = width < MID_SCREEN_WIDTH;
 
   return (
     <>
@@ -77,17 +74,18 @@ const UserProfile: React.FC<UserProps> = React.memo(({ user }) => {
               <img
                 className={cx(
                   classes.avatar,
-                  isScreenMobile
+                  isScreenTablet
                     ? classes.avatarSmallWidth
                     : classes.avatarBiggerWidth
                 )}
+                data-testid={'avatar-img'}
                 src={user.avatar_url}
                 alt='user-avatar'
               />
             </Box>
             <Box className={classes.innerContainer}>
               <UserProfileDetails
-                isScreenMobile={isScreenMobile}
+                isScreenMobile={isScreenTablet}
                 response={response}
               />
             </Box>

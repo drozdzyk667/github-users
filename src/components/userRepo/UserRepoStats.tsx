@@ -5,6 +5,7 @@ import { Icons } from 'Icons/Icon.constants';
 import { Tooltip, Box, makeStyles, Typography } from '@material-ui/core';
 import { RepoItemProps } from './UserRepoItem';
 import { LangColors } from 'theme/Colors';
+import { useWindowProperties } from 'helpers/useWidth';
 
 const useStyles = makeStyles({
   rowContainer: {
@@ -42,27 +43,37 @@ const useStyles = makeStyles({
   right: {
     marginLeft: 'auto',
   },
+  center: {
+    margin: 'auto auto',
+  },
 });
 
 const UserRepoStats: React.FC<RepoItemProps> = ({ color, repo }) => {
   const classes = useStyles();
+  const { isScreenMobile } = useWindowProperties();
 
   return (
     <Box className={cx(classes.statsContainer, classes.dotContainer)}>
-      {Object.keys(LangColors).includes(repo.language) ? (
-        <Tooltip title={repo.language} placement='top'>
-          <Box className={cx(classes.dotContainer, classes.small)}>
-            <Box
-              className={classes.dot}
-              style={{ backgroundColor: `${color}` }}
-            />
-            <Typography className={classes.lang}>{repo.language}</Typography>
-          </Box>
-        </Tooltip>
-      ) : (
-        <span>{'Ups...'}</span>
-      )}
-      <Box className={cx(classes.right, classes.dotContainer)}>
+      {!isScreenMobile &&
+        (Object.keys(LangColors).includes(repo.language) ? (
+          <Tooltip title={repo.language} placement='top'>
+            <Box className={cx(classes.dotContainer, classes.small)}>
+              <Box
+                className={classes.dot}
+                style={{ backgroundColor: `${color}` }}
+              />
+              <Typography className={classes.lang}>{repo.language}</Typography>
+            </Box>
+          </Tooltip>
+        ) : (
+          <span>{'Ups...'}</span>
+        ))}
+      <Box
+        className={cx(
+          isScreenMobile ? classes.center : classes.right,
+          classes.dotContainer
+        )}
+      >
         <Box className={classes.rowContainer}>
           <Icon fontSize='small' name={Icons.starRate} />
           {repo.stargazers_count}

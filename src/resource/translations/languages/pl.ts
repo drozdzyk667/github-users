@@ -5,7 +5,7 @@ const pl: Translation = {
     translations: {
       english: 'Angielski',
       enterUsername: 'Wprowadź Username',
-      fetchUsers: 'Liczba userów',
+      fetchUsers: 'Max userów',
       forks_count: 'Liczba kopii',
       polish: 'Polski',
       search: 'Wyszukaj',

@@ -1,6 +1,6 @@
 export const HUGE_LOADER_SIZE = 100;
 export const SMALL_LOADER_SIZE = 40;
-export const MIN_SCREEN_WIDTH = 375;
+export const MIN_SCREEN_WIDTH = 400;
 export const MID_SCREEN_WIDTH = 650;
 export const MAX_USERS_TO_FETCH = 3;
 

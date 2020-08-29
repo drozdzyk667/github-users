@@ -93,6 +93,7 @@ const SearchContainer: React.FC<Props> = ({
           <Button
             className={classes.button}
             color='primary'
+            data-testid='search-button'
             variant='contained'
             disabled={!searchQuery}
             onClick={handleSubmitSearchQuery}
