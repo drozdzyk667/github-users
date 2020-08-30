@@ -54,4 +54,15 @@ describe('SearchContainer', () => {
       .first();
     expect(btn.length).toBe(1);
   });
+
+  it('should check if button is enabled', () => {
+    const component = mount(Comp);
+    const btn = component
+      .find({
+        'data-testid': 'search-button',
+      })
+      .first();
+    btn.simulate('click');
+    expect(btn.prop('disabled')).toBeFalsy();
+  });
 });
